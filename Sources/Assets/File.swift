@@ -5,4 +5,9 @@
 //  Created by Wendy Liga on 25/07/20.
 //
 
-import Foundation
+#if canImport(UIKit)
+import UIKit
+
+public let favouriteIcon = UIImage(named: "favourite", in: Bundle.module)
+
+#endif
