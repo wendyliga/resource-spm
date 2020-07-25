@@ -6,19 +6,25 @@ import PackageDescription
 let package = Package(
     name: "resource-spm",
     defaultLocalization: "en",
-    dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
+    products: [
+        .executable(name: "resource-spm", targets: ["resource-spm"]),
+        .library(name: "Assets", targets: ["Assets"]),
     ],
+    dependencies: [],
     targets: [
-        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-        // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "resource-spm",
             dependencies: [],
             resources: [
                 .process("README.md"),
                 .process("Images"),
+                .process("Resources")
+            ]
+        ),
+        .target(
+            name: "Assets",
+            dependencies: [],
+            resources: [
                 .process("Resources")
             ]
         ),

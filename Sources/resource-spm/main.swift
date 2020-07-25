@@ -1,9 +1,22 @@
 import Foundation
 
+#if canImport(UIKit)
+import UIKit
+
+let imageInXcassets = UIImage(named: "favourite", in: Bundle.module)
+print(">>> xcassets \(imageInXcassets)")
+
+#elseif canImport(Cocoa)
+import Cocoa
+
+let imageInXCassets = NSImage(named: "favourite")
+print(">>> xcassets \(imageInXCassets)")
+
+#endif
+
 // Test Resources
 let picture = Bundle.module.path(forResource: "image", ofType: "png")
 
-print(picture)
 
 // Test Localized Resources
 // English (based on defaultLocalization).
