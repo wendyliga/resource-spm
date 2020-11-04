@@ -26,7 +26,15 @@ final class resource_spmTests: XCTestCase {
         let data = pipe.fileHandleForReading.readDataToEndOfFile()
         let output = String(data: data, encoding: .utf8)
 
-        XCTAssertEqual(output, "Hello, world!\n")
+        let expected = [
+            "image exist: true",
+            "Hello World",
+            "Hallo Dunia",
+            "¡Hola Mundo",
+            ""
+        ].joined(separator: "\n")
+        
+        XCTAssertEqual(output, expected)
     }
 
     /// Returns path to the built products directory.

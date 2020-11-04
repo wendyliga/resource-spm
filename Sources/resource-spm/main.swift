@@ -4,13 +4,13 @@ import Foundation
 import UIKit
 
 let imageInXcassets = UIImage(named: "favourite", in: Bundle.module)
-print(">>> xcassets \(imageInXcassets)")
+print("image exist: \(imageInXCassets != nil)")
 
 #elseif canImport(Cocoa)
 import Cocoa
 
-let imageInXCassets = NSImage(named: "favourite")
-print(">>> xcassets \(imageInXCassets)")
+let imageInXCassets = Bundle.module.image(forResource: "favourite")
+print("image exist: \(imageInXCassets != nil)")
 
 #endif
 
