@@ -1,19 +1,16 @@
 import XCTest
-import class Foundation.Bundle
+import Foundation
 
+@available(macOS 10.13, *)
 final class resource_spmTests: XCTestCase {
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
 
-        // Some of the APIs that we use below are available in macOS 10.13 and above.
-        guard #available(macOS 10.13, *) else {
-            return
-        }
-
         let fooBinary = productsDirectory.appendingPathComponent("resource-spm")
-
+        
+        #if os(macOS)
         let process = Process()
         process.executableURL = fooBinary
 
@@ -35,6 +32,7 @@ final class resource_spmTests: XCTestCase {
         ].joined(separator: "\n")
         
         XCTAssertEqual(output, expected)
+        #endif
     }
 
     /// Returns path to the built products directory.

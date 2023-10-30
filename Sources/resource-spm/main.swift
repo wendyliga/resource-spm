@@ -3,8 +3,8 @@ import Foundation
 #if canImport(UIKit)
 import UIKit
 
-let imageInXcassets = UIImage(named: "favourite", in: Bundle.module)
-print("image exist: \(imageInXCassets != nil)")
+let imageInXcassets = UIImage(named: "favourite", in: Bundle.module, compatibleWith: nil)
+print("image exist: \(imageInXcassets != nil)")
 
 #elseif canImport(Cocoa)
 import Cocoa
